@@ -1,6 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Clubs', {
+    await queryInterface.createTable('Players', {
 
       id: {
         allowNull: false,
@@ -12,12 +12,6 @@ module.exports = {
       name: {
         allowNull: false,
         type: Sequelize.STRING,
-        unique: true,
-      },
-
-      history: {
-        allowNull: true,
-        type: Sequelize.STRING,
       },
 
       country: {
@@ -25,20 +19,19 @@ module.exports = {
         type: Sequelize.STRING,
       },
 
-      stadium_name: {
+      birth_date: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.DATEONLY,
       },
 
-      fk_coach_id: {
-        type: Sequelize.INTEGER,
+      overall: {
         allowNull: false,
-        references: {
-          model: {
-            tableName: 'coaches',
-          },
-          key: 'id',
-        },
+        type: Sequelize.INTEGER(11).UNSIGNED,
+      },
+
+      traits: {
+        allowNull: true,
+        type: Sequelize.JSON,
       },
 
       createdAt: {
@@ -54,6 +47,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Clubs');
+    await queryInterface.dropTable('Players');
   },
 };
