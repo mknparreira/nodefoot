@@ -18,10 +18,6 @@ module.exports = (sequelize, DataTypes) => {
       values: ['INJURIED', 'SUSPENDED'],
     },
     ki_number: DataTypes.INTEGER,
-    position: {
-      type: DataTypes.ENUM,
-      values: ['GOALKEEPER', 'DEFENDER', 'MIDFIELDER', 'FORWARD'],
-    },
   }, {
     sequelize,
     modelName: 'Squad',

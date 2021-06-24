@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     country: DataTypes.STRING,
     birth_date: DataTypes.DATEONLY,
     overall: DataTypes.INTEGER,
+    position: {
+      type: DataTypes.ENUM,
+      values: ['GOALKEEPER', 'DEFENDER', 'MIDFIELDER', 'FORWARD'],
+    },
     traits: DataTypes.JSON,
   }, {
     sequelize,

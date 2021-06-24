@@ -20,13 +20,19 @@ module.exports = {
       },
 
       birth_date: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATEONLY,
       },
 
       overall: {
         allowNull: false,
         type: Sequelize.INTEGER(11).UNSIGNED,
+      },
+
+      position: {
+        allowNull: false,
+        type: Sequelize.ENUM,
+        values: ['GOALKEEPER', 'DEFENDER', 'MIDFIELDER', 'FORWARD'],
       },
 
       traits: {

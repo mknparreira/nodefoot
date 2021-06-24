@@ -43,12 +43,6 @@ module.exports = {
           values: ['INJURIED', 'SUSPENDED'],
         },
 
-        position: {
-          allowNull: false,
-          type: Sequelize.ENUM,
-          values: ['GOALKEEPER', 'DEFENDER', 'MIDFIELDER', 'FORWARD'],
-        },
-
         createdAt: {
           allowNull: false,
           type: Sequelize.DATE,

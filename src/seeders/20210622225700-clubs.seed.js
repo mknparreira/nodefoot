@@ -23,7 +23,7 @@ module.exports = {
       },
 
       {
-        name: 'Sporting',
+        name: 'Sporting CP',
         history: '',
         country: 'Portugal',
         stadium_name: 'Estádio do Alvalade',
