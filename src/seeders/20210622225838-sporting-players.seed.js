@@ -5,7 +5,7 @@ module.exports = {
       {
         name: 'Adán',
         country: 'Spain',
-        birth_date: '',
+        birth_date: '1987-05-13',
         overall: '80',
         position: 'GOALKEEPER',
         createdAt: new Date(),
@@ -13,9 +13,9 @@ module.exports = {
       },
 
       {
-        name: 'Renan Ribeiro',
-        country: 'Brazil',
-        birth_date: '',
+        name: 'André Paulo',
+        country: 'Portugal',
+        birth_date: '1996-12-18',
         overall: '74',
         position: 'GOALKEEPER',
         createdAt: new Date(),
@@ -25,7 +25,7 @@ module.exports = {
       {
         name: 'Acuna',
         country: 'Argentina',
-        birth_date: '',
+        birth_date: '1991-08-28',
         overall: '83',
         position: 'DEFENDER',
         createdAt: new Date(),
@@ -35,7 +35,7 @@ module.exports = {
       {
         name: 'Coates',
         country: 'Uruguay',
-        birth_date: '',
+        birth_date: '1990-10-07',
         overall: '81',
         position: 'DEFENDER',
         createdAt: new Date(),
@@ -45,7 +45,7 @@ module.exports = {
       {
         name: 'Antunes',
         country: 'Portugal',
-        birth_date: '',
+        birth_date: '1987-04-01',
         overall: '79',
         position: 'DEFENDER',
         createdAt: new Date(),
@@ -55,7 +55,7 @@ module.exports = {
       {
         name: 'Luis Neto',
         country: 'Portugal',
-        birth_date: '',
+        birth_date: '1988-03-26',
         overall: '75',
         position: 'DEFENDER',
         createdAt: new Date(),
@@ -65,7 +65,7 @@ module.exports = {
       {
         name: 'João Mário',
         country: 'Portugal',
-        birth_date: '',
+        birth_date: '1993-01-19',
         overall: '80',
         position: 'MIDFIELDER',
         createdAt: new Date(),
@@ -75,7 +75,7 @@ module.exports = {
       {
         name: 'Wendel',
         country: 'Brazil',
-        birth_date: '',
+        birth_date: '1997-08-28',
         overall: '79',
         position: 'MIDFIELDER',
         createdAt: new Date(),
@@ -83,9 +83,9 @@ module.exports = {
       },
 
       {
-        name: 'Palhinha',
+        name: 'João Palhinha',
         country: 'Portugal',
-        birth_date: '',
+        birth_date: '1995-07-09',
         overall: '78',
         position: 'MIDFIELDER',
         createdAt: new Date(),
@@ -95,7 +95,7 @@ module.exports = {
       {
         name: 'Pedro Gonçalves',
         country: 'Portugal',
-        birth_date: '',
+        birth_date: '1998-06-28',
         overall: '78',
         position: 'MIDFIELDER',
         createdAt: new Date(),
@@ -105,7 +105,7 @@ module.exports = {
       {
         name: 'Paulinho',
         country: 'Portugal',
-        birth_date: '',
+        birth_date: '1992-11-09',
         overall: '79',
         position: 'FORWARD',
         createdAt: new Date(),
@@ -113,9 +113,9 @@ module.exports = {
       },
 
       {
-        name: 'Vietto',
-        country: 'Argentina',
-        birth_date: '',
+        name: 'Luiz Phellype',
+        country: 'Brazil',
+        birth_date: '1993-09-27',
         overall: '78',
         position: 'FORWARD',
         createdAt: new Date(),
@@ -125,7 +125,7 @@ module.exports = {
       {
         name: 'Nuno Santos',
         country: 'Portugal',
-        birth_date: '',
+        birth_date: '1995-02-13',
         overall: '76',
         position: 'FORWARD',
         createdAt: new Date(),
@@ -135,7 +135,7 @@ module.exports = {
       {
         name: 'Bruno Tabata',
         country: 'Brazil',
-        birth_date: '',
+        birth_date: '1997-03-30',
         overall: '75',
         position: 'FORWARD',
         createdAt: new Date(),

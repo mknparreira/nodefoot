@@ -31,9 +31,9 @@ module.exports = {
           },
         },
 
-        ki_number: {
+        kit_number: {
           allowNull: false,
-          unique: true,
+          // unique: true,
           type: Sequelize.INTEGER(11).UNSIGNED,
         },
 

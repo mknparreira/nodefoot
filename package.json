@@ -4,7 +4,9 @@
   "description": "",
   "main": "./src/server.js",
   "scripts": {
-    "start": "nodemon ./src/server.js"
+    "start": "nodemon ./src/server.js",
+    "migrate:all": "npx sequelize-cli db:migrate",
+    "seed:all": "npx sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "Maikon Parreira",
