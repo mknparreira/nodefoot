@@ -1,30 +1,31 @@
 const { Model } = require('sequelize');
 
-module.exports = (sequelize, DataTypes) => {
+const db = require('../config/Database.config');
+
+const { Sequelize } = db;
+
+module.exports = () => {
   class Match extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       Match.belongsTo(models.Club);
       Match.belongsTo(models.Club);
     }
   }
+
   Match.init({
-    shift: DataTypes.INTEGER,
-    round: DataTypes.INTEGER,
-    score_home: DataTypes.INTEGER,
-    score_away: DataTypes.INTEGER,
-    resume: DataTypes.JSON,
+    shift: Sequelize.INTEGER,
+    round: Sequelize.INTEGER,
+    score_home: Sequelize.INTEGER,
+    score_away: Sequelize.INTEGER,
+    resume: Sequelize.JSON,
     final_result: {
-      type: DataTypes.ENUM,
+      type: Sequelize.ENUM,
       values: ['HOME_WON', 'AWAY_WON', 'DRAWN'],
     },
   }, {
-    sequelize,
+    sequelize: db.sequelize,
     modelName: 'Match',
   });
+
   return Match;
 };
