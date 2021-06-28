@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const Sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 const globalConfig = require('config');
 
 class Database {
@@ -15,12 +15,14 @@ class Database {
     const db = {};
     const basename = path.basename(__filename);
     const sequelize = this._connection();
+    const modelsPath = path.resolve('./src/models');
 
     fs
-      .readdirSync(__dirname)
+      .readdirSync(modelsPath)
       .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
       .forEach((file) => {
-        const model = require(path.join(__dirname, file));
+        const model = require(path.join(modelsPath, file))(sequelize, Sequelize.DataTypes);
+        db[model.name] = model;
         db[model.name] = model;
       });
 

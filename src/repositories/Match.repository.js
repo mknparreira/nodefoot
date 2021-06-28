@@ -1,8 +1,8 @@
-const match = require('../models/Match.model');
+const db = require('../models/index');
 
 class MatchRepository {
   constructor() {
-    this.model = match();
+    this.model = db.Match;
   }
 
   async getMatch(id) {
@@ -10,7 +10,10 @@ class MatchRepository {
       where: {
         id,
       },
+      include: ['clubHome', 'clubAway'],
     });
+
+    console.log(objMatch);
 
     if (!objMatch) {
       return false;
