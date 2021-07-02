@@ -1,3 +1,5 @@
+const Array = require('../src/utils/Array.util');
+
 const VERY_LOW = 5;
 const LOW = 25;
 const NORMAL = 50;
@@ -10,21 +12,6 @@ class EventController {
     // return this.suffleEvent();
   }
 
-  shuffle(array) {
-    let i = array.length;
-    let j = 0;
-    let temp;
-
-    while (i -= 1) {
-      j = Math.floor(Math.random() * (i + 1));
-      temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-
-    return array;
-  }
-
   getEvent() {
     const eventA = this.calcuateLesion();
     const eventB = this.calculateGoal();
@@ -34,33 +21,32 @@ class EventController {
     const probB = parseInt(((eventB.probability / total) * 100), 10);
     const probC = parseInt(((eventC.probability / total) * 100), 10);
 
-    const arrA = [];
+    const finalArray = [];
     for (let i = 0; i < probA; i += 1) {
-      arrA.push('calcuateLesion');
+      finalArray.push(eventA);
     }
 
     for (let i = 0; i < probB; i += 1) {
-      arrA.push('calculateGoal');
+      finalArray.push(eventB);
     }
 
     for (let i = 0; i < probC; i += 1) {
-      arrA.push('calcuateSwap');
+      finalArray.push(eventC);
     }
 
-    const allProbabilities = this.shuffle(arrA);
-    const randomEvent = allProbabilities[Math.floor(Math.random() * allProbabilities.length)];
-
-    console.log(`MINUTE: ${this.minute}`);
-    console.log('=============================');
-    console.log(probA);
-    console.log('=============================');
-    console.log(probB);
-    console.log('=============================');
-    console.log(probC);
-    console.log('=============================');
-    console.log(randomEvent);
-
-    return '';
+    const allProbabilities = Array.shuffle(finalArray);
+    return Array.pickOneValueRandomly(allProbabilities);
+    // const randomEvent = Array.pickOneValueRandomly(allProbabilities);
+    // console.log(`MINUTE: ${this.minute}`);
+    // console.log('=============================');
+    // console.log(`${eventA.name} ${probA}`);
+    // console.log('=============================');
+    // console.log(`${eventB.name} ${probB}`);
+    // console.log('=============================');
+    // console.log(`${eventC.name} ${probC}`);
+    // console.log('=============================');
+    // console.log(randomEvent);
+    // return '';
   }
 
   calcuateLesion() {
@@ -68,19 +54,28 @@ class EventController {
     const eventType = {};
     eventType.name = 'LESION';
     eventType.time = minute;
-    const prob = 2;
+
     if (minute <= 15) {
-      const probability = ((prob + VERY_LOW) / 100) * 100;
-      eventType.probability = parseInt(probability, 10);
+      eventType.probability = (VERY_LOW / 100) * 100;
       return eventType;
     }
 
-    if (minute >= 70) {
-      eventType.probability = ((prob + VERY_HIGH) / 100) * 100;
+    if (minute >= 16 && minute <= 45) {
+      eventType.probability = (VERY_LOW / 100) * 100;
       return eventType;
     }
 
-    eventType.probability = ((prob + LOW) / 100) * 100;
+    if (minute >= 46 && minute <= 70) {
+      eventType.probability = (LOW / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 71 && minute <= 90) {
+      eventType.probability = (HIGH / 100) * 100;
+      return eventType;
+    }
+
+    eventType.probability = (VERY_LOW / 100) * 100;
 
     return eventType;
   }
@@ -90,19 +85,33 @@ class EventController {
     const eventType = {};
     eventType.name = 'GOAL';
     eventType.time = minute;
-    const prob = 4.0;
 
     if (minute <= 15) {
-      eventType.probability = ((prob + VERY_LOW) / 100) * 100;
+      eventType.probability = (VERY_LOW / 100) * 100;
       return eventType;
     }
 
-    if (minute >= 30 && minute < 70) {
-      eventType.probability = ((prob + NORMAL) / 100) * 100;
+    if (minute >= 16 && minute <= 30) {
+      eventType.probability = (NORMAL / 100) * 100;
       return eventType;
     }
 
-    eventType.probability = ((prob + VERY_HIGH) / 100) * 100;
+    if (minute >= 31 && minute <= 45) {
+      eventType.probability = (VERY_HIGH / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 46 && minute <= 70) {
+      eventType.probability = (HIGH / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 71 && minute <= 90) {
+      eventType.probability = (VERY_HIGH / 100) * 100;
+      return eventType;
+    }
+
+    eventType.probability = (VERY_LOW / 100) * 100;
 
     return eventType;
   }
@@ -112,10 +121,29 @@ class EventController {
     const eventType = {};
     eventType.name = 'SWAP';
     eventType.time = minute;
-    const prob = VERY_HIGH;
 
-    if (minute >= 70) {
-      eventType.probability = (prob / 100) * 100;
+    if (minute <= 15) {
+      eventType.probability = (VERY_LOW / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 16 && minute <= 30) {
+      eventType.probability = (VERY_LOW / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 31 && minute <= 45) {
+      eventType.probability = (VERY_LOW / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 46 && minute <= 70) {
+      eventType.probability = (HIGH / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 71 && minute <= 90) {
+      eventType.probability = (VERY_HIGH / 100) * 100;
       return eventType;
     }
 
