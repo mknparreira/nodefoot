@@ -31,9 +31,9 @@ while (arr.length < totalOfEventsPerMatch) {
 
 const eventsTime = arr.sort((a, b) => a - b);
 
-for (const event of eventsTime) {
-  const tt = new EventController(event);
-  console.log(tt);
+for (const minute of eventsTime) {
+  const event = new EventController(minute);
+  console.log(event.getEvent());
 }
 
 /*
