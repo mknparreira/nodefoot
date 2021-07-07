@@ -7,8 +7,21 @@ class Database {
   _connection() {
     const databaseConfig = globalConfig.get('Database');
 
-    return new Sequelize(databaseConfig.database,
+    const connection = new Sequelize(databaseConfig.database,
       databaseConfig.username, databaseConfig.password, databaseConfig);
+
+    console.info('SETUP - Connecting database...');
+
+    connection
+      .authenticate()
+      .then(() => {
+        console.info('INFO - Database connected.');
+      })
+      .catch((err) => {
+        console.error('ERROR - Unable to connect to the database:', err);
+      });
+
+    return connection;
   }
 
   _filesystem() {
@@ -22,7 +35,8 @@ class Database {
       .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
       .forEach((file) => {
         const model = require(path.join(modelsPath, file))(sequelize, Sequelize.DataTypes);
-        db[model.name] = model;
+
+        if (typeof (model) !== 'function') return;
         db[model.name] = model;
       });
 
