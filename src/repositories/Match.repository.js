@@ -1,4 +1,4 @@
-const db = require('../models/index');
+const db = require('../config/Database.config');
 
 class MatchRepository {
   constructor() {
