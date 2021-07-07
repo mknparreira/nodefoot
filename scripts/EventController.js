@@ -16,10 +16,12 @@ class EventController {
     const eventA = this.calcuateLesion();
     const eventB = this.calculateGoal();
     const eventC = this.calcuateSwap();
-    const total = eventA.probability + eventB.probability + eventC.probability;
+    const eventD = this.calcuateCard();
+    const total = eventA.probability + eventB.probability + eventC.probability + eventD.probability;
     const probA = parseInt(((eventA.probability / total) * 100), 10);
     const probB = parseInt(((eventB.probability / total) * 100), 10);
     const probC = parseInt(((eventC.probability / total) * 100), 10);
+    const probD = parseInt(((eventD.probability / total) * 100), 10);
 
     const finalArray = [];
     for (let i = 0; i < probA; i += 1) {
@@ -32,6 +34,10 @@ class EventController {
 
     for (let i = 0; i < probC; i += 1) {
       finalArray.push(eventC);
+    }
+
+    for (let i = 0; i < probD; i += 1) {
+      finalArray.push(eventD);
     }
 
     const allProbabilities = Array.shuffle(finalArray);
@@ -144,6 +150,46 @@ class EventController {
 
     if (minute >= 71 && minute <= 90) {
       eventType.probability = (VERY_HIGH / 100) * 100;
+      return eventType;
+    }
+
+    eventType.probability = (VERY_LOW / 100) * 100;
+    return eventType;
+  }
+
+  calcuateCard() {
+    const { minute } = this;
+    const eventType = {};
+    eventType.name = 'CARD';
+    eventType.time = minute;
+
+    if (minute <= 10) {
+      eventType.probability = (VERY_LOW / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 11 && minute <= 15) {
+      eventType.probability = (LOW / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 16 && minute <= 30) {
+      eventType.probability = (NORMAL / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 31 && minute <= 45) {
+      eventType.probability = (NORMAL / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 46 && minute <= 70) {
+      eventType.probability = (NORMAL / 100) * 100;
+      return eventType;
+    }
+
+    if (minute >= 71 && minute <= 90) {
+      eventType.probability = (NORMAL / 100) * 100;
       return eventType;
     }
 
