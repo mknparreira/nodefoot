@@ -1,5 +1,5 @@
 const globalConfig = require('config');
-const app = require('./config/App.config');
+const app = require('./config/app.config');
 
 const generalConfig = globalConfig.get('General');
 const hostConfig = generalConfig.get('host');

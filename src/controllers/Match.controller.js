@@ -1,4 +1,4 @@
-const matchService = require('../services/match/Match.service');
+const matchService = require('../services/match/match.service');
 
 class MatchController {
   index(req, res) {

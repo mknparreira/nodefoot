@@ -1,4 +1,4 @@
-const db = require('../config/Database.config');
+const db = require('../config/database.config');
 
 class MatchRepository {
   constructor() {

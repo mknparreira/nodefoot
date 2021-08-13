@@ -1,17 +1,14 @@
-const matchRepository = require('../../repositories/Match.repository');
-const eventService = require('./Event.service');
+const randomEventsToMatch = require('event-system');
+const matchRepository = require('../../repositories/match.repository');
 
 class MatchService {
   constructor() {
+    this.randomEventsToMatch = randomEventsToMatch;
     this.matchRepository = matchRepository;
-    this.eventService = eventService;
   }
 
   match(matchId) {
-    const events = this.eventService.getEvents();
-
-    console.log(events);
-
+    // this.randomEventsToMatch.getEvents();
     return this.matchRepository.getMatch(Number(matchId));
   }
 }
