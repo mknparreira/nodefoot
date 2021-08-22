@@ -1,4 +1,4 @@
-const Array = require('../src/utils/Array.util');
+const Array = require('../src/packages/match-system/src/utils/array.util');
 
 const VERY_LOW = 5;
 const LOW = 25;

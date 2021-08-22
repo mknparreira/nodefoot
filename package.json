@@ -16,8 +16,8 @@
   "dependencies": {
     "config": "^3.3.6",
     "dotenv": "^10.0.0",
-    "event-system": "file:src/packages/event-system/src",
     "express": "^4.17.1",
+    "match-system": "file:src/packages/match-system/src",
     "mysql2": "^2.2.5",
     "path": "^0.12.7",
     "sequelize": "^6.6.2"

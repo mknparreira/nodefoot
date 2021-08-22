@@ -1,4 +1,4 @@
-const randomEventsToMatch = require('event-system');
+const randomEventsToMatch = require('match-system');
 const matchRepository = require('../../repositories/match.repository');
 
 class MatchService {

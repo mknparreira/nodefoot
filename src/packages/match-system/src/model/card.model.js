@@ -1,0 +1,47 @@
+class Card {
+  constructor(minute) {
+    this.minute = minute;
+  }
+
+  get calculate() {
+    const { minute } = this;
+    const event = {};
+    event.name = 'CARD';
+    event.time = minute;
+
+    if (minute <= 10) {
+      event.probability = (5 / 100) * 100;
+      return event;
+    }
+
+    if (minute >= 11 && minute <= 15) {
+      event.probability = (25 / 100) * 100;
+      return event;
+    }
+
+    if (minute >= 16 && minute <= 30) {
+      event.probability = (50 / 100) * 100;
+      return event;
+    }
+
+    if (minute >= 31 && minute <= 45) {
+      event.probability = (50 / 100) * 100;
+      return event;
+    }
+
+    if (minute >= 46 && minute <= 70) {
+      event.probability = (50 / 100) * 100;
+      return event;
+    }
+
+    if (minute >= 71 && minute <= 90) {
+      event.probability = (50 / 100) * 100;
+      return event;
+    }
+
+    event.probability = (5 / 100) * 100;
+    return event;
+  }
+}
+
+module.exports = Card;

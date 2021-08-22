@@ -1,5 +1,5 @@
 const EventController = require('./EventController');
-const Probability = require('../src/utils/Probability.util');
+const Probability = require('../src/packages/match-system/src/utils/probability.util');
 
 (() => {
   console.log('this is an type of auto funciton');
@@ -24,14 +24,13 @@ while (minutes.length < totalOfEventsPerMatch) {
   if (minutes.indexOf(m) === -1) minutes.push(m);
 }
 
+const events = [];
 const minutesSorted = minutes.sort((a, b) => a - b);
 
-const events = [];
-for (const minute of minutesSorted) {
+minutesSorted.forEach((minute) => {
   const e = new EventController(minute);
   events.push(e.getEvent());
-}
-
+});
 console.log(events);
 
 /*

@@ -1,5 +1,5 @@
 const GenerateEventService = require('./generateEvent.service');
-const Probability = require('../utils/probability.util');
+const { getTotalEventsPerMatch } = require('../utils/probability.util');
 
 class EventService {
   static getEvents() {
@@ -11,7 +11,7 @@ class EventService {
       52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
       71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90];
 
-    const totalOfEventsPerMatch = Probability.getTotalEventsPerMatch(2, 15);
+    const totalOfEventsPerMatch = getTotalEventsPerMatch(2, 15);
 
     while (minutes.length < totalOfEventsPerMatch) {
       const pos = Math.floor(Math.random() * minutesOfAnEventMightHappen.length) + 1;
@@ -19,11 +19,10 @@ class EventService {
     }
 
     const minutesSorted = minutes.sort((a, b) => a - b);
-
-    for (const minute of minutesSorted) {
-      const ev = new GenerateEventService(minute);
-      events.push(ev.getEvent());
-    }
+    minutesSorted.forEach((minute) => {
+      const event = new GenerateEventService(minute);
+      events.push(event.getEvent());
+    });
 
     return events;
   }
