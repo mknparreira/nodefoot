@@ -19,17 +19,19 @@ class GenerateEvent {
       lesion, goal, swap, card,
     } = this;
 
+    const total = this.totalProbabilities();
+
     const lesionProbability = sanitizeProbability(
-      lesion.calculate.probability, this.totalProbabilities(),
+      lesion.calculate.probability, total,
     );
     const goalProbability = sanitizeProbability(
-      goal.calculate.probability, this.totalProbabilities(),
+      goal.calculate.probability, total,
     );
     const swapProbability = sanitizeProbability(
-      swap.calculate.probability, this.totalProbabilities(),
+      swap.calculate.probability, total,
     );
     const cardProbability = sanitizeProbability(
-      card.calculate.probability, this.totalProbabilities(),
+      card.calculate.probability, total,
     );
 
     const allProbabilities = [];
@@ -54,12 +56,22 @@ class GenerateEvent {
   }
 
   totalProbabilities() {
+    const allEvents = [];
     const {
       lesion, goal, swap, card,
     } = this;
 
-    return lesion.calculate.probability + goal.calculate.probability
-     + swap.calculate.probability + card.calculate.probability;
+    allEvents.push(
+      lesion.calculate,
+      goal.calculate,
+      swap.calculate,
+      card.calculate,
+    );
+
+    const total = allEvents
+      .reduce((cumulate, currentValue) => cumulate + currentValue.probability, 0);
+
+    return total;
   }
 }
 

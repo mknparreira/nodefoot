@@ -9,7 +9,12 @@ class Swap {
     event.name = 'SWAP';
     event.time = minute;
 
-    if (minute <= 15) {
+    if (minute <= 10) {
+      event.probability = (2 / 100) * 100;
+      return event;
+    }
+
+    if (minute >= 11 && minute <= 15) {
       event.probability = (5 / 100) * 100;
       return event;
     }
