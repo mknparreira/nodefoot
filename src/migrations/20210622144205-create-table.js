@@ -62,12 +62,12 @@ module.exports = {
         type: Sequelize.INTEGER(11).UNSIGNED,
       },
 
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
 
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },

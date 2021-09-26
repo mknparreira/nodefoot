@@ -62,12 +62,12 @@ module.exports = {
         values: ['HOME_WON', 'AWAY_WON', 'DRAWN'],
       },
 
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
 
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },

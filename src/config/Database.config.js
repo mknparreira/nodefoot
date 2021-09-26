@@ -8,7 +8,7 @@ class Database {
     const databaseConfig = globalConfig.get('Database');
 
     const connection = new Sequelize(databaseConfig.database,
-      databaseConfig.username, databaseConfig.password, databaseConfig);
+      databaseConfig.username, databaseConfig.password, databaseConfig.options);
 
     console.info('SETUP - Connecting database...');
 
