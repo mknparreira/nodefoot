@@ -68,10 +68,7 @@ class GenerateEvent {
       card.calculate,
     );
 
-    const total = allEvents
-      .reduce((cumulate, currentValue) => cumulate + currentValue.probability, 0);
-
-    return total;
+    return allEvents.reduce((cumulate, currentValue) => cumulate + currentValue.probability, 0);
   }
 }
 
