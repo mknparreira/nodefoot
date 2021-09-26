@@ -16,7 +16,14 @@ module.exports = {
     username: process.env.DB_USERNAME,
     password: '',
     database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
+    options: {
+      host: process.env.DB_HOST,
+      dialect: process.env.DB_DIALECT,
+      define: {
+        timestamps: false,
+        undescored: true,
+      },
+    },
   },
 };
