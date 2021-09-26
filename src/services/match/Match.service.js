@@ -7,9 +7,10 @@ class MatchService {
     this.matchRepository = matchRepository;
   }
 
-  match(matchId) {
-    // this.randomEventsToMatch.getEvents();
-    return this.matchRepository.getMatch(Number(matchId));
+  async match(matchId) {
+    // const events = await this.randomEventsToMatch.getEvents();
+    const match = await this.matchRepository.getMatch(Number(matchId));
+    return match;
   }
 }
 
