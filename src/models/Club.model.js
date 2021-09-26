@@ -17,9 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'fk_club_id',
       });
 
-      Club.hasMany(models.Squad, {
-        foreignKey: 'fk_club_id',
-      });
+      Club.hasMany(models.Squad, { foreignKey: 'fk_club_id', as: 'squad' });
     }
   }
   Club.init({
